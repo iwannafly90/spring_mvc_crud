@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/}">Все пользователи</a><br/>
+    <br>
+    <form th:method="POST" th:action="@{'/create/' + ${user.id}}" th:object="${user}">
+        <label for="firstName">Введите имя: </label>
+        <input type="text" th:field="${user.firstName}" id="firstName"/>
+
+        <br>
+
+        <label for="lastName">Введите фамилию: </label>
+        <input type="text" th:field="${user.lastName}" id="lastName">
+
+        <br>
+
+        <label for="email">Введите почту: </label>
+        <input type="text" th:field="${user.email}" id="email">
+
+        <br>
+
+        <input type="submit" value="Добавить">
+    </form>
+</div>
+</body>
+</html>

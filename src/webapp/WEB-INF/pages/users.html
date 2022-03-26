@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h2>Users</h2>
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Почта</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each ="user : ${usersList}">
+                <td th:text="${user.id}">...</td>
+                <td th:text="${user.firstName}">...</td>
+                <td th:text="${user.lastName}">...</td>
+                <td th:text="${user.email}">...</td>
+                <td>
+                    <a th:href="@{'/' + ${user.id}}">Редактировать</a>
+                </td>
+                <td>
+                    <a th:href="@{'/delete/' + ${user.id}}">Удалить</a>
+                </td>
+            </tr>
+        </table>
+
+        <a th:href="@{'user_add'}">Добавить нового пользователя</a>
+    </body>
+</html>
